@@ -1,0 +1,1 @@
+H:\CleverOne\CodeAnalysis\MyDotNet\SampleApp\MyConsoleApp\.sonarqube\out\0

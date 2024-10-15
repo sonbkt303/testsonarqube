@@ -1,0 +1,6 @@
+projectKey=LeKuNET
+serverUrl=http://172.76.10.185:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://172.76.10.185:9000/dashboard?id=LeKuNET
+ceTaskId=88555bd1-4c6e-476d-9f9d-e5c4064ab523
+ceTaskUrl=http://172.76.10.185:9000/api/ce/task?id=88555bd1-4c6e-476d-9f9d-e5c4064ab523

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>MyConsoleApp</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Product</ProjectType>
+  <ProjectGuid>004f7118-25f6-45b1-afe5-e7fb4c9cc2fd</ProjectGuid>
+  <FullPath>H:\CleverOne\CodeAnalysis\MyDotNet\SampleApp\MyConsoleApp\MyConsoleApp.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="H:\CleverOne\CodeAnalysis\MyDotNet\SampleApp\MyConsoleApp\.sonarqube\conf\0\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">H:\CleverOne\CodeAnalysis\MyDotNet\SampleApp\MyConsoleApp\.sonarqube\out\0\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">H:\CleverOne\CodeAnalysis\MyDotNet\SampleApp\MyConsoleApp\.sonarqube\out\0</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net5.0</TargetFramework>
+</ProjectInfo>
