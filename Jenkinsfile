@@ -21,25 +21,16 @@ pipeline {
       }
     }
 
-    // stage('SonarQube Analysis') {
-    //   steps {
-    //     script {
-    //       def scannerHome = tool 'SonarScanner for .NET'
-    //       withSonarQubeEnv('sq1') {
-    //         sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
-    //         sh "dotnet build"
-    //         sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
-    //       }
-    //     }
-    //   }
-    // }
-
     stage('SonarQube Analysis') {
-      def scannerHome = tool 'SonarScanner for .NET'
-      withSonarQubeEnv('sq1') {
-        sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
-        sh "dotnet build"
-        sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+      steps {
+        script {
+           def scannerHome = tool 'SonarScanner for .NET'
+            withSonarQubeEnv('sq1') {
+              sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
+              sh "dotnet build"
+              sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+            }
+        }
       }
     }
   }
