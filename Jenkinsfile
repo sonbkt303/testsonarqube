@@ -9,21 +9,21 @@ pipeline {
   }
 
   stages {
-    stage('SCM') {
-      steps {
-        checkout scm
-      }
-    }
-    stage('Restore') {
-      steps {
-        sh 'dotnet restore'
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'dotnet build --configuration Release'
-      }
-    }
+    // stage('SCM') {
+    //   steps {
+    //     checkout scm
+    //   }
+    // }
+    // stage('Restore') {
+    //   steps {
+    //     sh 'dotnet restore'
+    //   }
+    // }
+    // stage('Build') {
+    //   steps {
+    //     sh 'dotnet build --configuration Release'
+    //   }
+    // }
 
     stage('SonarQube Analysis') {
       steps {
