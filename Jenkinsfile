@@ -1,8 +1,6 @@
 pipeline {
   agent any
-  tools {
-    dotnetsdk 'dotnet-sdk'
-  }
+
   environment {
     PATH = "${env.PATH}:${HOME}/.dotnet/tools"
   }
