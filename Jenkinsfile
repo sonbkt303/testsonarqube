@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    dotnetsdk 'dotnet-sdk'
+    'hudson.plugins.dotnet.DotNetSDK' 'dotnet-sdk'
   }
 
   environment {
