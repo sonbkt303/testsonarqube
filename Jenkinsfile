@@ -23,7 +23,7 @@ pipeline {
           //   sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
           // }
           withSonarQubeEnv('sq1') {
-            sh "dotnet sonarscanner begin /k:\"testsonarqube\" /d:sonar.cs.opencover.reportsPaths=coverage/coverage.cobertura.xml"
+            sh "dotnet sonarscanner begin /k:\"testsonarqube\""
             sh 'dotnet build'
             sh "dotnet sonarscanner end"
           }
