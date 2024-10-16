@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner for .NET'
+    def scannerHome = tool 'SonarScannerNet'
     withSonarQubeEnv('sq1') {
       bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
       bat "dotnet build"
