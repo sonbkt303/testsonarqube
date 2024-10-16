@@ -12,6 +12,12 @@ pipeline {
                 checkout scm
             }
         }
+
+        stage('SCM') {
+          steps {
+            sh "echo "$PATH""
+          }
+        }
         stage('SonarQube Analysis') {
             steps {
                 script {
