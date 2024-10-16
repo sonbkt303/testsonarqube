@@ -1,28 +1,24 @@
 pipeline {
-    agent any
-    tools {
-        dotnet 'dotnet-sdk'
+  agent any
+  tools {
+    dotnet 'dotnet-sdk'
+  }
+  environment {
+    PATH = "${env.PATH}:${HOME}/.dotnet/tools"
+  }
+  stages {
+    stage('SCM') {
+      steps {
+        checkout scm
+      }
     }
-    environment {
-        PATH = "${env.PATH}:${HOME}/.dotnet/tools"
+    stage('SonarQube Analysis') {
+      def scannerHome = tool 'SonarScanner for .NET'
+      withSonarQubeEnv() {
+        bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
+        bat "dotnet build"
+        bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll end"
+      }
     }
-    stages {
-        stage('SCM') {
-            steps {
-                checkout scm
-            }
-        }
-        stage('SonarQube Analysis') {
-            steps {
-                script {
-                    def scannerHome = tool 'SonarScannerNet'
-                    withSonarQubeEnv('sq1') {
-                        sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
-                        sh "dotnet build"
-                        sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
-                    }
-                }
-            }
-        }
-    }
+  }
 }
