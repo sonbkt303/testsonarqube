@@ -23,9 +23,12 @@ pipeline {
           //   sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
           // }
           withSonarQubeEnv('sq1') {
-            sh "dotnet sonarscanner begin /k:\"testsonarqube\""
-            sh 'dotnet build'
-            sh "dotnet sonarscanner end"
+            // sh "dotnet sonarscanner begin /k:\"testsonarqube\""
+            // sh 'dotnet build'
+            // sh "dotnet sonarscanner end"
+            bat "\"${scannerHome}\\SonarScanner.MSBuild.exe\" begin /k:\"testsonarqube\""
+            bat "\"${msbuildHome}\\MSBuild.exe\" /t:Rebuild"
+            bat "\"${scannerHome}\\SonarScanner.MSBuild.exe\" end"
           }
           
         }
