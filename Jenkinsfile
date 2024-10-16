@@ -1,8 +1,4 @@
 pipeline {
-  agent {
-    label 'windows'
-  }
-
   environment {
     PATH = "${env.PATH}:${HOME}/.dotnet/tools"
   }
