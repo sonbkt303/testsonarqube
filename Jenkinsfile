@@ -17,11 +17,17 @@ pipeline {
       steps {
         script {
           def scannerHome = tool name: 'SonarScanner for .NET', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+          // withSonarQubeEnv('sq1') {
+          //   sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
+          //   sh 'dotnet build'
+          //   sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+          // }
           withSonarQubeEnv('sq1') {
-            sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
+            sh "dotnet sonarscanner begin /k:\"testsonarqube\" /d:sonar.cs.opencover.reportsPaths=coverage/coverage.cobertura.xml"
             sh 'dotnet build'
-            sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+            sh "dotnet sonarscanner end"
           }
+          
         }
       }
     }
