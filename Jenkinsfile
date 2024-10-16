@@ -13,6 +13,13 @@ pipeline {
       }
     }
     
+    stage('Print Variable') {
+      steps {
+        script {
+          echo "The value of MY_VARIABLE is: ${env.PATH}"
+        }
+      }
+    }
     stage('SonarQube Analysis') {
       steps {
         script {
