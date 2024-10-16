@@ -1,4 +1,5 @@
 pipeline {
+
   environment {
     PATH = "${env.PATH}:${HOME}/.dotnet/tools"
   }
