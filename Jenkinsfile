@@ -9,11 +9,11 @@ pipeline {
   }
 
   stages {
-    // stage('SCM') {
-    //   steps {
-    //     checkout scm
-    //   }
-    // }
+    stage('SCM') {
+      steps {
+        checkout scm
+      }
+    }
 
      stage('Restore') {
       steps {
