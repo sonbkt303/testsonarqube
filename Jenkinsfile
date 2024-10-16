@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools {
       // Install the .NET SDK
-    dotnet 'dotnet-sdk'
+    dotnet 'SonarScanner .Net Core'
   }
   stages {
     stage('Build') {
