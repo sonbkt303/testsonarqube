@@ -1,10 +1,11 @@
 pipeline {
   agent any
+  
   tools {
     dotnet 'dotnet-sdk'
   }
   environment {
-      PATH = "${env.PATH}:${HOME}/.dotnet/tools"
+    PATH = "${env.PATH}:${HOME}/.dotnet/tools"
   }
 
   stages {
