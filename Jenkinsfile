@@ -21,7 +21,7 @@ pipeline {
     stage('SonarQube Analysis') {
       steps {
         script {
-          def msbuildHome = tool name: 'MSBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
+          def msbuildHome = tool name: 'Default MSBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
           def scannerHome = tool name: 'SonarScanner for .NET', type: 'hudson.plugins.sonar.MsBuildSQRunnerInstallation'
           withSonarQubeEnv('sq1') {
               sh "\"${scannerHome}/SonarScanner.MSBuild.dll\" begin /k:\"testsonarqube\""
