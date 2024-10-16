@@ -26,18 +26,4 @@ pipeline {
       }
     }
   }
-  
-  post {
-    always {
-      archiveArtifacts artifacts: 'publish/**', allowEmptyArchive: true
-      junit 'TestResults/*.xml'
-    }
-    failure {
-      emailext (
-        to: 'recipient@example.com',
-        subject: "Jenkins Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-        body: "The build ${env.JOB_NAME} #${env.BUILD_NUMBER} has failed. Please check the Jenkins console output for more details: ${env.BUILD_URL}"
-      )
-    }
-  }
 }
