@@ -1,0 +1,43 @@
+pipeline {
+  environment {
+    SCANNER_HOME = tool 'SonarScanner' // Name of the SonarScanner installation
+  }
+
+  agent any
+
+  stages {
+    stage('SonarQube Analysis') {
+      steps {
+        def scannerHome = tool 'SonarScanner for .NET'
+        withSonarQubeEnv('sq1') { // Name of the SonarQube server
+          // sh "${SCANNER_HOME}/bin/sonar-scanner"
+          sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll begin /k:\"testsonarqube\""
+          sh "dotnet build"
+          sh "dotnet ${scannerHome}/SonarScanner.MSBuild.dll end"
+        }
+      }
+    }
+
+  // stage('Cleaning Up') {
+  //   steps{
+  //     sh "docker rmi --force $registry/$repos:$BUILD_NUMBER"
+  //   }
+  // }
+  }
+
+  post {
+    always {
+      cleanWs(
+        cleanWhenAborted: true,
+        cleanWhenFailure: true,
+        cleanWhenNotBuilt: false,
+        cleanWhenSuccess: true,
+        cleanWhenUnstable: true,
+        deleteDirs: true,
+        notFailBuild: true,
+        disableDeferredWipeout: true
+      )
+    }
+  }
+}
+
