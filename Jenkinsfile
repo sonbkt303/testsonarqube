@@ -9,11 +9,18 @@ pipeline {
   }
 
   stages {
-    stage('SCM') {
+    // stage('SCM') {
+    //   steps {
+    //     checkout scm
+    //   }
+    // }
+
+     stage('Restore') {
       steps {
-        checkout scm
+        sh 'dotnet restore'
       }
     }
+    
     stage('SonarQube Analysis') {
       steps {
         script {
