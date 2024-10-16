@@ -7,11 +7,11 @@ pipeline {
     PATH = "${env.PATH}:${HOME}/.dotnet/tools"
   }
   stages {
-    stage('SCM') {
-      steps {
-          checkout scm
-      }
-    }
+    // stage('SCM') {
+    //   steps {
+    //     checkout scm
+    //   }
+    // }
     
     stage('Print Variable') {
       steps {
