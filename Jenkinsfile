@@ -15,7 +15,7 @@ pipeline {
       }
     }
 
-     stage('Restore') {
+    stage('Restore') {
       steps {
         sh 'dotnet restore'
       }
